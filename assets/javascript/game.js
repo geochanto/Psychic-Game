@@ -11,12 +11,13 @@ function startGame() {
     computerGuess = chars[Math.floor(Math.random()*chars.length)];
     displaycomputerGuess();
     var guessesSoFar = [];
-   
+
+    displayguessesSoFar();
 document.onkeyup = function (event) {
     userGuess = event.key;
     guessesSoFar.push(userGuess);
     console.log(guessesSoFar);
-    displayguessesSoFar();
+    
     if (computerGuess == userGuess) {
         wins++;
         displayWins();
