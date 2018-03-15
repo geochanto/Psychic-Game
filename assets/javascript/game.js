@@ -11,17 +11,21 @@ function startGame() {
     computerGuess = chars[Math.floor(Math.random()*chars.length)];
     displaycomputerGuess();
     var guessesSoFar = [];
+    
 
-    displayguessesSoFar();
 document.onkeyup = function (event) {
     userGuess = event.key;
     guessesSoFar.push(userGuess);
+    
     console.log(guessesSoFar);
+    console.log('Guesses so Far: ' + guessesSoFar.toString());
+    $('#guessesSoFar').html('<strong>Guesses So Far:</strong> ' + guessesSoFar.toString());
     
     if (computerGuess == userGuess) {
         wins++;
         displayWins();
         startGame();
+        $('#guessesSoFar').html('<strong>Guesses So Far:</strong> ');
     }
 
     else {
@@ -33,6 +37,7 @@ document.onkeyup = function (event) {
             displayLosses();
             displayguessesLeft(); 
             startGame();    
+            $('#guessesSoFar').html('<strong>Guesses So Far:</strong> ');
         }
     }
 }
@@ -56,8 +61,6 @@ function displayguessesLeft () {
     $('#guessesLeft').html('<strong>Guesses Left:</strong> ' + guessesLeft);
 }
 
-function displayguessesSoFar () {
-    $('#guessesSoFar').html('<strong>Guesses So Far:</strong> ' + guessesSoFar);
-}
+
 
 });
