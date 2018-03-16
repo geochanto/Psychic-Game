@@ -12,7 +12,6 @@ function startGame() {
     displaycomputerGuess();
     var guessesSoFar = [];
     
-
 document.onkeyup = function (event) {
     userGuess = event.key;
     guessesSoFar.push(userGuess);
@@ -23,7 +22,9 @@ document.onkeyup = function (event) {
     
     if (computerGuess == userGuess) {
         wins++;
+        guessesLeft = 3;
         displayWins();
+        displayguessesLeft(); 
         startGame();
         $('#guessesSoFar').html('<strong>Guesses So Far:</strong> ');
     }
